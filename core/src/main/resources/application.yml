@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: core
+  # default profile
+  profiles:
+    active: local
+    
+---
+spring:
+  profiles: local
+  
+keystone:
+  endpoint: https://api-compute.cloud.toast.com/identity/v2.0
+  tenant-id: ..
+  username: joonghyun.lee@nhnent.com
+  password: ..
+  
+swift:
+  endpoint: https://api-storage.cloud.toast.com/v1

@@ -1,0 +1,16 @@
+logging:
+  level:
+    ROOT: WARN
+    core: DEBUG
+
+spring:
+  profiles: test
+
+keystone:
+  endpoint: https://api-compute.cloud.toast.com/identity/v2.0
+  tenant-id: 96dd878c0c4b4479a1e59fc5ea1ce8a4
+  username: joonghyun.lee@nhnent.com
+  password: 123qwe
+  
+swift:
+  endpoint: https://api-storage.cloud.toast.com/v1
