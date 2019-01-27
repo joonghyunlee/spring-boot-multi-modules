@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Login</title>
+      <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="/css/main.css" rel="stylesheet">
+	  <script src="/webjars/jquery/jquery.min.js"></script>
+	  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+	  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+   </head>
+   <body>
+   <div class="outer">
+      <div class="content login_content">
+      	<p>
+      		<img src="https://id.toast.com/img/logo_toast.svg?v=2018102309" width="182" height="60" alt="NHN TOAST">
+      	</p>
+      	
+      	<div class="form_wrap login_bx">
+      		<em class="title_text">Welcome</em>
+      		<p class="dsc_text">haproxy - WebSocket Test Application</p>
+      		<form id="login" method="POST">
+  				<div class="form-group">
+  					<input type="email" class="form-control" name="username" placeholder="Email Address">
+				</div>
+				<button type="submit" class="btn btn-primary">Login</button>
+  			</form>
+      	</div>
+      </div>
+   </div>
+   </body>
+</html>
