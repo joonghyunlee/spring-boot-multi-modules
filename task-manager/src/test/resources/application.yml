@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: task-manager
+  profiles:
+    active: test
+
+logging:
+  level:
+    ROOT: WARN
+    taskmanager: DEBUG
+    org.hibernate: WARN
+---
+
+spring:
+  profiles: test 
+  mvc:
+    favicon:
+      enabled: false
+  datasource:
+    initialization-mode: always
+    driver-class-name: org.h2.Driver
+    schema:
+    - classpath:schema/task_definition.sql
+    - classpath:schema/task.sql
+    url: jdbc:h2:mem:task-manager;DB_CLOSE_DELAY=-1
+    username: task
+    password: 123qwe!
