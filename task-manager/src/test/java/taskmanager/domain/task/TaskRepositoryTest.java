@@ -40,8 +40,8 @@ public class TaskRepositoryTest {
   @Test
   public void getTaskRepositorySuccessfulTest() {
     // given
-    Long taskId = taskRepository.createTask(taskDefinition.getId());
-    log.debug(taskId);
+    Task task = taskRepository.createTask(taskDefinition.getId());
+    log.debug(task);
 
     // when
     List<Task> tasks = taskRepository.getTasksByTaskDefinitionId(taskDefinition.getId());
@@ -49,5 +49,14 @@ public class TaskRepositoryTest {
     // then
     assertNotNull(tasks);
     log.debug(tasks);
+  }
+
+  @Test
+  public void getRunnableTasksSuccessfulTest() {
+    // given
+
+    // when
+
+    // then
   }
 }

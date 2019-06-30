@@ -27,8 +27,10 @@ public class Task {
     task.setUpdatedAt(entity.getUpdatedAt());
     task.setDeletedAt(entity.getDeletedAt());
     task.setId(entity.getId());
-    task.setTaskDefinitonId(entity.getTaskDefinition().getId());
-    task.setStatus(entity.getStatus());
+    task.setTaskDefinitonId(entity.getTaskDefinition()
+      .getId());
+    task.setStatus(entity.getStatus()
+      .toString());
 
     return task;
   }

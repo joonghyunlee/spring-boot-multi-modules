@@ -19,9 +19,6 @@ spring:
   datasource:
     initialization-mode: always
     driver-class-name: org.h2.Driver
-    schema:
-    - classpath:schema/task_definition.sql
-    - classpath:schema/task.sql
     url: jdbc:h2:mem:task-manager;DB_CLOSE_DELAY=-1
     username: task
     password: 123qwe!
@@ -29,3 +26,9 @@ spring:
     job-store-type: memory
     properties:
       org.quartz.threadPool.threadCount: 5
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        generate_statistics: true

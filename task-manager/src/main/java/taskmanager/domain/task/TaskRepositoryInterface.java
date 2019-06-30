@@ -2,13 +2,16 @@ package taskmanager.domain.task;
 
 import java.util.List;
 import taskmanager.domain.task.model.Task;
+import taskmanager.domain.task.model.TaskStatus;
 
 public interface TaskRepositoryInterface {
   List<Task> getTasksByTaskDefinitionId(String taskDefinitionId);
 
-  Long createTask(String taskDefinitionId);
+  public List<Task> getRunnableTasks();
 
-  Task updateTaskStatus(String taskId, String status);
+  Task createTask(String taskDefinitionId);
 
-  void deleteTask(String taskId);
+  Task updateTaskStatus(long taskId, TaskStatus status);
+
+  void deleteTask(long taskId);
 }
