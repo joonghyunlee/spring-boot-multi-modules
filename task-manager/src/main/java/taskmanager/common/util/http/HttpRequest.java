@@ -1,4 +1,4 @@
-package taskmanager.common.util;
+package taskmanager.common.util.http;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;

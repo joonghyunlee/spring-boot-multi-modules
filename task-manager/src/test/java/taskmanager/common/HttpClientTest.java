@@ -12,8 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.reactive.function.client.WebClient;
 import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Mono;
-import taskmanager.common.util.HttpClient;
-import taskmanager.common.util.HttpRequest;
+import taskmanager.common.util.http.HttpClient;
+import taskmanager.common.util.http.HttpRequest;
 
 @Log4j2
 @RunWith(SpringRunner.class)
