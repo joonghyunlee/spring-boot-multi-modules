@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: task-manager
+  profiles:
+    active: local
+
+logging:
+  level:
+    ROOT: WARN
+    taskmanager: DEBUG
+    org.hibernate: WARN
+    
+---
+
+spring:
+  profiles: local
+  mvc:
+    favicon:
+      enabled: false
+  datasource:
+    initialization-mode: always
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:task-manager;DB_CLOSE_DELAY=-1
+    username: task
+    password: 123qwe!
+  quartz:
+    job-store-type: memory
+    properties:
+      org.quartz.threadPool.threadCount: 5
+      org.quartz.scheduler.instanceName: 'task-manager'
+      org.quartz.plugin.shutdownHook.class: org.quartz.plugins.management.ShutdownHookPlugin
+      org.quartz.plugin.shutdownHook.cleanShutdown: true
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        generate_statistics: true
