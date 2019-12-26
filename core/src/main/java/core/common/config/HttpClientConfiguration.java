@@ -1,5 +1,6 @@
 package core.common.config;
 
+import core.common.util.HttpClient;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,7 @@ import org.springframework.http.client.InterceptingClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,7 +23,7 @@ import core.common.util.HttpLoggingInterceptor;
 
 @Configuration
 @EnableWebMvc
-public class WebMvcConfig implements WebMvcConfigurer {
+public class HttpClientConfiguration implements WebMvcConfigurer {
   @Bean
   public ObjectMapper objectMapper() {
     return configureObjectMapper(new CustomObjectMapper());
@@ -33,6 +35,18 @@ public class WebMvcConfig implements WebMvcConfigurer {
     objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, false);
 
     return objectMapper;
+  }
+
+  @Bean
+  public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+    MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
+    jsonConverter.setObjectMapper(configureObjectMapper(objectMapper()));
+    return jsonConverter;
+  }
+
+  @Override
+  public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+    converters.add(mappingJackson2HttpMessageConverter());
   }
 
   @Bean
@@ -57,14 +71,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
   }
 
   @Bean
-  public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-    MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
-    jsonConverter.setObjectMapper(configureObjectMapper(objectMapper()));
-    return jsonConverter;
-  }
-
-  @Override
-  public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-    converters.add(mappingJackson2HttpMessageConverter());
+  public HttpClient httpClient() {
+    return new HttpClient(WebClient.builder());
   }
 }

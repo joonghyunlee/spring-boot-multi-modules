@@ -5,3 +5,5 @@ target/
 .factorypath
 .springBeans
 *.class
+.idea
+*.iml

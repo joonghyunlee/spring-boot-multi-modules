@@ -10,12 +10,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import core.common.config.CoreKeystoneProperties;
-import core.common.config.WebMvcConfig;
+import core.common.config.HttpClientConfiguration;
 import core.support.keystone.model.Access;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-    classes = {WebMvcConfig.class, CoreKeystoneProperties.class, KeystoneRepository.class})
+    classes = {HttpClientConfiguration.class, CoreKeystoneProperties.class, KeystoneRepository.class})
 @ActiveProfiles("test")
 public class KeystoneRepositoryTest {
   private final Logger LOG = LoggerFactory.getLogger(this.getClass());

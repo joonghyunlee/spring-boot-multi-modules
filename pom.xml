@@ -21,7 +21,8 @@
         <module>core</module>
         <module>batch</module>
     <module>task-manager</module>
-  </modules>
+      <module>api</module>
+    </modules>
     
   <dependencyManagement>
     <dependencies>

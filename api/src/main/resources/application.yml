@@ -1,0 +1,17 @@
+# embeded tomcat
+server:
+  port: 10080
+  address: 0.0.0.0
+  tomcat:
+    uri-encoding: UTF-8
+
+# spring
+spring:
+  # IDENTITY
+  application:
+    name: infrastructure-api
+  # favicon
+  mvc.favicon.enabled: false
+  # default profile
+  profiles:
+    active: local
