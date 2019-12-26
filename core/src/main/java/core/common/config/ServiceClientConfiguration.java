@@ -45,7 +45,7 @@ public class ServiceClientConfiguration {
 
         beanFactory.registerBeanDefinition(beanName,
             BeanDefinitionBuilder.genericBeanDefinition(clientClass)
-                .addDependsOn("commonStringBean")
+                .addConstructorArgReference("commonStringBean")
                 .getBeanDefinition());
       });
     };
